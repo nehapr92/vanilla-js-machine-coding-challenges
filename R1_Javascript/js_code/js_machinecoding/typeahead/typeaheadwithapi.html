@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typeahead Search</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+    }
+
+    #search-box {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    #suggestions {
+      border: 1px solid #ccc;
+      width: 300px;
+      max-height: 150px;
+      overflow-y: auto;
+      margin-top: 5px;
+    }
+
+    .suggestion {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .suggestion:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Search Users</h2>
+  <input type="text" id="search-box" placeholder="Start typing a name..." />
+  <div id="suggestions"></div>
+
+  <script>
+    const input = document.getElementById('search-box');
+    const suggestionsBox = document.getElementById('suggestions');
+    let users = [];
+
+    // Fetch users on page load
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => users = data)
+      .catch(err => console.error('Error fetching users', err));
+
+    input.addEventListener('input', () => {
+      const query = input.value.toLowerCase();
+      suggestionsBox.innerHTML = '';
+
+      if (query.length === 0) return;
+
+      const matches = users.filter(user =>
+        user.name.toLowerCase().includes(query)
+      );
+
+      matches.forEach(user => {
+        const div = document.createElement('div');
+        div.textContent = user.name;
+        div.className = 'suggestion';
+        div.onclick = () => {
+          input.value = user.name;
+          suggestionsBox.innerHTML = '';
+        };
+        suggestionsBox.appendChild(div);
+      });
+    });
+  </script>
+
+</body>
+</html>

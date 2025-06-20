@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typeahead Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      max-width: 300px;
+    }
+
+    li {
+      padding: 10px;
+      border-top: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Type a fruit name:</h2>
+  <input type="text" id="search" placeholder="e.g. Apple" />
+  <ul id="suggestions"></ul>
+
+  <script>
+    const fruits = [
+      "Apple", "Apricot", "Avocado", "Banana", "Blackberry", "Blueberry",
+      "Cherry", "Coconut", "Fig", "Grapes", "Guava", "Kiwi", "Lemon", "Mango",
+      "Melon", "Orange", "Papaya", "Peach", "Pear", "Pineapple", "Plum",
+      "Raspberry", "Strawberry", "Watermelon"
+    ];
+
+    const input = document.getElementById('search');
+    const suggestionList = document.getElementById('suggestions');
+
+    input.addEventListener('input', () => {
+      const query = input.value.toLowerCase().trim();
+      suggestionList.innerHTML = '';
+
+      if (query.length === 0) return;
+
+      const matches = fruits.filter(fruit =>
+        fruit.toLowerCase().includes(query)
+      );
+
+      matches.forEach(fruit => {
+        const li = document.createElement('li');
+        li.textContent = fruit;
+        li.addEventListener('click', () => {
+          input.value = fruit;
+          suggestionList.innerHTML = '';
+        });
+        suggestionList.appendChild(li);
+      });
+    });
+  </script>
+
+</body>
+</html>

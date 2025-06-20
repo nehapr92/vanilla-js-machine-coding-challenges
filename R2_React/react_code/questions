@@ -1,0 +1,24 @@
+Question 1: 
+Show 9 balloons (colored circles). Every 2 seconds, a random balloon turns red (active). If clicked within 1 second, score +1. Otherwise, it bursts (vanishes). Game resets after 10 rounds.
+
+Question 2: 
+Simulate a horizontal row of 10 "LEDs". On click of a “Start” button, LEDs light up one after another (with 300ms delay). After all light up, turn off in reverse order. Repeat 3 times.
+
+Question 3: 
+Create a 5x5 grid of tiles. One random tile has a hidden "treasure".
+User can click up to 3 tiles to try finding it.
+Each clicked tile reveals a message: “Too Far”, “Close”, or “You Found It!” based on Manhattan distance to the treasure.
+If not found in 3 tries, reveal the treasure location with a golden glow.
+
+Question 4: 
+A sequence of 4 colors (Red, Blue, Green, Yellow) flashes in random order (1s per flash).
+User then clicks the colors in the same order.
+If correct, show “Level Up!” and add one more color to the sequence.
+If incorrect, flash red and restart.
+
+Question 5: 
+You have 4 potted plants on screen. Each plant has a moisture bar (from 100% to 0%).
+Every second, moisture reduces by 5%.
+Clicking a plant waters it (+30% moisture, max 100%).
+If moisture hits 0%, the plant dies (turns brown).
+After 1 minute, display how many plants you kept alive.

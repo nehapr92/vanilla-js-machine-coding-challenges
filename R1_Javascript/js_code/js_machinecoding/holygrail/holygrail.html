@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desktop-First Holy Grail Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header,
+    footer {
+      background: #444;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+
+    aside {
+      background: #eee;
+      padding: 1rem;
+      width: 200px;
+    }
+
+    main {
+      flex: 1;
+      background: #f9f9f9;
+      padding: 1rem;
+    }
+
+    /* Mobile: stack all sections vertically */
+    @media (max-width: 767px) {
+      .container {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Header</header>
+
+  <div class="container">
+    <aside class="left">Left Sidebar</aside>
+    <main>Main Content Area</main>
+    <aside class="right">Right Sidebar</aside>
+  </div>
+
+  <footer>Footer</footer>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch and Render</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    #user-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    #user-list li {
+      background: #f0f0f0;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    #load-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button id="load-btn" onclick="loadUsers()">Load Users</button>
+  <ul id="user-list"></ul>
+
+  <script>
+async function loadUsers() {
+  const list = document.getElementById('user-list');
+  list.innerHTML = '<li>Loading...</li>';
+
+  try {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await res.json();
+
+    list.innerHTML = '';
+    data.forEach(user => {
+      const li = document.createElement('li');
+      li.textContent = `${user.name} (${user.email})`;
+      list.appendChild(li);
+    });
+  } catch (err) {
+    list.innerHTML = '<li>Error loading users</li>';
+  }
+}
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Centered Heading Card</title>
+  <style>
+
+    body{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .card {
+      width: 300px;
+      padding:20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+
+    .card-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #555;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>John Doe</h3>
+    <img
+      src="https://www.bing.com/images/search?view=detailV2&insightsToken=bcid_S3Vjx2w4KpAIqxcxoNWLuD9SqbotqVTdP3I&FORM=ANCMS1&iss=SBIUPLOADGET#enterInsights"
+      alt="Profile"
+      class="card-img"
+    />
+    <div class="card-content">
+      <p>Frontend Developer at OpenAI. Passionate about clean UI & UX.</p>
+    </div>
+  </div>
+</body>
+</html>
